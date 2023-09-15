@@ -1,0 +1,42 @@
+{% extends "source.html" %}
+
+{% block title %}Add New Article Records{% endblock title %}
+
+{% block content %}
+<div class = "col-md-12">
+    <form method="POST" class="post-form" action="/Create" >
+    {% csrf_token %}
+    <div class="container">
+        <div class="col-12">
+            <h3>Fill in the form</h3>
+        </div>
+
+        <div class="mb-3">
+            <label>
+                Title:
+            </label>
+            {{ form.title }}
+        </div>
+
+        <div class="mb-3">
+            <label>
+                Content:
+            </label>
+            {{ form.content }}
+        </div>
+
+        <div class="mb-3">
+            <label>
+                Image:
+            </label>
+            {{ form.image }}
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">
+                Submit
+            </button>
+        </div>
+    </div>
+    </form>
+</div>
+{% endblock content %}

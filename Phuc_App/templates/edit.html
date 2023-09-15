@@ -1,0 +1,47 @@
+{% extends "source.html" %}
+
+{% block title %}Add New Article Records{% endblock title %}
+
+{% block content %}
+<div class = "col-md-12">
+    <form method="POST" class="post-form" action="/update/{{ articles.id }}">
+    {% csrf_token %}
+    <div class="container">
+        <div class="col-12">
+            <h2>Update Articles</h2>
+        </div>
+
+        <div class="mb-3">
+            <label >
+                ID:
+            </label>
+            <input type="text" class="form-control" name="id" id="id_id" required maxlength="15" value="{{ articles.id }}"/>
+        </div>
+
+        <div class="mb-3">
+            <label >
+                Title:
+            </label>
+            <input type="text" class="form-control" name="title" id="id_title" required maxlength="150" value="{{ articles.title }}"/>
+        </div>
+
+        <div class="mb-3">
+            <label >
+                Content:
+            </label>
+            <input type="text" class="form-control" name="content" id="id_content"  value="{{ articles.content }}"/>
+        </div>
+
+        <div class="mb-3">
+            <label >
+                Image
+            </label>
+            <input type="url" class="form-control" name="image" id="id_image" required maxlength="200" value="{{ articles.image }}"/>
+        </div>
+
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+    </div>
+    </form>
+{% endblock content %}
